@@ -6,7 +6,7 @@
 //======================================================================================
 // N          : number of data in DataX or DataF
 // DataX      : variable of function
-// DataY      : the function value to be perform integration
+// DataY      : the function value to be performed integration
 // Range      : integral range
 // NumCells   : number of uniform cells which discretized integral range
 //======================================================================================
