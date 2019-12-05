@@ -1,10 +1,8 @@
-#include <iostream>
 #include <fstream>
 #include <string>
 #include <math.h>
 #include "prototypes.h"
 
-using namespace std;
 
 int
 main ()
@@ -31,21 +29,12 @@ main ()
 
   RowIdx = Aux_LoadTable ( Data, FileName, NColumns, TargetColumns, RowMajor_No, AllocMem_Yes );
 
-//  for ( int j=0; j<RowIdx; j++ )
-//  {
-//    for ( int i=0; i<NColumns; i++ )
-//    {
-//      printf("%e  ", *(Data + i*RowIdx+j ));
-//	}
-//	printf("\n");
-//  }
-
   double *DataX, *DataF;
 
   DataX = Data + 0*RowIdx;
   DataF = Data + 1*RowIdx;
 
-  const int NumCells = 1000;
+  const int NumCells = 100000;
   const double Range[2] = { 0.0, M_PI };
   double Sum;
 

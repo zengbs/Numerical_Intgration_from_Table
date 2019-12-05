@@ -4,7 +4,7 @@
 
 int main()
 {
-int NumCells = 1000;
+int NumCells = 100000;
 double LeftLimit, RightLimit;
 
 LeftLimit  = 0.0;

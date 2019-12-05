@@ -2,10 +2,20 @@
 #include <stdlib.h>
 #include "prototypes.h"
 
+
+//======================================================================================
+// N          : number of data in DataX or DataF
+// DataX      : variable of function
+// DataY      : the function value to be perform integration
+// Range      : integral range
+// NumCells   : number of uniform cells which discretized integral range
+//======================================================================================
+
+
 double Integration( const int N, const double *DataX, const double *DataF, const double *Range,
 			     const int NumCells )
 {
-// find maximum and minimum value if DataX
+// find maximum and minimum value in DataX
 // --> assuming DataX have been sorted
   double DataMax, DataMin;
 
@@ -42,7 +52,6 @@ double Integration( const int N, const double *DataX, const double *DataF, const
 	exit(1);
   }
 
-//
 
 // cell size
   double CellSize = ( RightLimit - LeftLimit ) / (double) NumCells;
@@ -51,7 +60,7 @@ double Integration( const int N, const double *DataX, const double *DataF, const
 
 // trapezoidal rule is emplyed to approximate definite integral
 // Ref: https://en.wikipedia.org/wiki/Trapezoidal_rule#Uniform_grid
-// To reduce rounding error, we can split integral range ?
+// To reduce rounding error, should we split integral range and respectively sum up integral value ?
   int i;
 
   for ( i = 1; i < NumCells; i++ )
