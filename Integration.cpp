@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "prototypes.h"
-
+#include "Macro.h"
 
 //======================================================================================
 // N          : number of data in DataX or DataF
@@ -69,11 +70,15 @@ double Integration( const int N, const double *DataX, const double *DataF, const
 
     Fi = Mis_InterpolateFromTable( N, DataX, DataF, Xi );
 
+
+    Fi *= 4.0 * M_PI * SQR(Xi * CONST_KPC);
+
     Sum += Fi;
   }
 
-  Sum += 0.5 * Mis_InterpolateFromTable( N, DataX, DataF, RightLimit );
-  Sum += 0.5 * Mis_InterpolateFromTable( N, DataX, DataF, LeftLimit  );
+  Sum += 0.5 * 4.0 * M_PI * SQR(CONST_KPC*RightLimit) * Mis_InterpolateFromTable( N, DataX, DataF, RightLimit );
+  Sum += 0.5 * 4.0 * M_PI * SQR(CONST_KPC*LeftLimit)  * Mis_InterpolateFromTable( N, DataX, DataF, LeftLimit  );
+
 
   Sum *= CellSize;
 

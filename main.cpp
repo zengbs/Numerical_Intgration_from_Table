@@ -14,7 +14,7 @@ main ()
   const int NColumns = 2;
 
   // target columns
-  const int TargetColumns[NColumns] = { 0, 1};
+  const int TargetColumns[NColumns] = { 1, 2};
 
   //array to store data
   double *Data = NULL;
@@ -35,7 +35,7 @@ main ()
   DataF = Data + 1*RowIdx;
 
   const int NumCells = 100000;
-  const double Range[2] = { 0.0, M_PI };
+  const double Range[2] = { 0.0, 2000.0 };
   double Sum;
 
   Sum = Integration( RowIdx, DataX, DataF, Range, NumCells );
